@@ -1,4 +1,9 @@
 #!/bin/bash
+# Add this to .bashrc or .zshrc:
+# ~/.config/nvim/check-status.sh
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+cd "$SCRIPT_DIR" || { echo "Failed to enter script directory"; exit 1; }
 
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     echo "Neovim config is not a git repo?!"
