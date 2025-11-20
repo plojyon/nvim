@@ -1,4 +1,3 @@
-require('options')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -188,10 +187,14 @@ require("lazy").setup({
 	-- LSP for helm
 	{ "qvalentin/helm-ls.nvim", ft = "helm" },
 
+	-- treesitter
+    { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
+
 	-- copilot
 	{ "github/copilot.vim" },
 })
 
+require('options')
 require('keymaps')
 require('colorscheme')
 require('lsp')
